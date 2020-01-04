@@ -10,34 +10,4 @@
   <% end %>
 </p>
 
-<%= form_with(model: @book, local: true) do |form| %>
-  <div class="form-field">
-    <%= form.label :title, "Title"%>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="form-field">
-    <%= form.label :description, "Description" %> 
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="form-field">
-    <%= form.label :expected_completion_date %>
-    <%= form.text_field :expected_completion_date %>
-  </div>
-  
-  <div class="form-field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-  
-  <div class="form-field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre %>
-  </div>
-
-  <div class="actions">
-    <%= link_to  "Back", books_path %>
-    <%= form.submit "Update" %>
-  </div>
-<% end %>
+<%= render partial: "books/form", locals: { book: @book }%>
