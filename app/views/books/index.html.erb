@@ -1,0 +1,29 @@
+<h1>List books</h1>
+<table>
+  <tr>
+    <th> id </th>
+    <th> Title </th>
+    <th> Completion Date </th>
+    <th> Category </th>
+    <th> Genre </th>
+  </tr>
+
+  <%- @books.each do |book| %>
+    <tr>
+      <td> <%= book.id %> </td>
+      <td> <%= book.title %> </td>
+      <td> <%= book.expected_completion_date %> </td>
+      <td> <%= book.category %> </td>
+      <td> <%= book.genre %> </td>
+      <td>
+        <%= link_to "Edit", edit_book_path(book) %>
+        <%= link_to "Show", book_path(book) %>
+        <%= link_to  "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div>
+<%= link_to  "Add new book", new_book_path %>
+</div>

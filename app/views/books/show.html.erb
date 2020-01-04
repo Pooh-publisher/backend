@@ -1,0 +1,30 @@
+<h1> Show Book </h1>
+<div> 
+  Title:
+  <%= @book.title %>
+</div>
+
+<div> 
+  Description:
+  <%= simple_format @book.description %>
+</div>
+
+<div> 
+  Completion Date:
+  <%= @book.expected_completion_date %>
+</div>
+
+<div> 
+  Category:
+  <%= @book.category %>
+</div>
+
+<div> 
+  Genre:
+  <%= @book.genre %>
+</div>
+
+<div>
+  <%= link_to  "Back", books_path %>
+  <%= link_to  "Edit", edit_book_path(@book) %>
+</div>
