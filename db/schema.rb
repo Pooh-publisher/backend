@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_141300) do
+ActiveRecord::Schema.define(version: 2020_01_04_133733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,4 +25,14 @@ ActiveRecord::Schema.define(version: 2019_12_27_141300) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_sections_on_book_id"
+  end
+
+  add_foreign_key "sections", "books"
 end

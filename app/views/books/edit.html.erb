@@ -1,13 +1,5 @@
 <h1>Edit Book</h1>
 
-<p>
-  <%- if @book.errors.any? %>
-    <ol>
-      <%- @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ol>
-  <% end %>
-</p>
+<%= render partial: "shared/invalidation", locals: {resource: @book}%>
 
 <%= render partial: "books/form", locals: { book: @book }%>

@@ -1,0 +1,9 @@
+<h1> Sections </h1>
+<ol>
+  <%- @sections.each do |s| %>
+    <li>
+      <h2> <%= s.name %> </h2>
+      <p> <%= s.content %></p>
+    </li>
+  <% end %>
+</ol>
