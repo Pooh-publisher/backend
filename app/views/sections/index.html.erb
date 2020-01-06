@@ -3,7 +3,17 @@
   <%- @sections.each do |s| %>
     <li>
       <h2> <%= s.name %> </h2>
-      <p> <%= s.content %></p>
+      <p> <%= s.content.truncate(10, separator: ' ') %></p>
+      <p> 
+      <%= link_to "Show", book_section_path(s.book, s) %> 
+      <%= link_to "Edit", edit_book_section_path(s.book, s) %> 
+      <%= link_to "Delete", book_section_path(s.book, s), method: :delete, data: {confirm: "Are you sure?"} %> 
+      </p>
     </li>
   <% end %>
 </ol>
+
+<div> 
+<%= link_to "Back", books_path %>
+<%= link_to "Add Section", new_book_section_path %>
+</div>
