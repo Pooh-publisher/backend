@@ -16,7 +16,19 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all.order(:id)
+    @page = params[:page]
+
+    @total_page = (Book.count*1.0/10).ceil
+
+    if !@page || @page.to_i < 1
+      @page = 1
+    elsif @page.to_i > @total_page
+      @page = @total_page
+    else
+      @page = @page.to_i
+    end
+
+    @books = Book.offset((@page-1)*10).limit(10).order(:id)
   end
 
   def edit
