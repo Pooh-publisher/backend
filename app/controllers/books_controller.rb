@@ -16,19 +16,13 @@ class BooksController < ApplicationController
   end
 
   def index
-    @page = params[:page]
-
-    @total_page = (Book.count*1.0/10).ceil
-
-    if !@page || @page.to_i < 1
-      @page = 1
-    elsif @page.to_i > @total_page
-      @page = @total_page
+    if params.key?(:q)
+      @books = Book.ransack(query_params).result
     else
-      @page = @page.to_i
+      @books = Book.all
     end
 
-    @books = Book.offset((@page-1)*10).limit(10).order(:id)
+    @books = @books.page(params[:page]).order(:id)
   end
 
   def edit
@@ -58,5 +52,9 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def query_params
+    params.require(:q).permit(:title_eq, :title_cont, :title_start)
   end
 end

@@ -1,4 +1,19 @@
 <h1>List books</h1>
+<%= form_with(url: books_path, method: :get, local: true) do |form| %>
+  <div class="form-field">
+    <%= form.label "Title equal" %>
+    <%= form.text_field "q[title_eq]"  %>
+  </div>
+  <div class="form-field">
+    <%= form.label "Title contains" %>
+    <%= form.text_field "q[title_cont]"  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
+
 <table>
   <tr>
     <th> id </th>
@@ -27,13 +42,7 @@
 </table>
 
 <div>
-  <%- if @page > 1 %>
-   <%= link_to "PREVIOUS PAGE", books_path(page: @page -1)%>
-  <% end %>
-
-  <%- if @page < @total_page %>
-    <%= link_to "NEXT PAGE", books_path(page: @page + 1)%>
-  <% end %>
+  <%= paginate @books %>
 </div>
 
 <div>
