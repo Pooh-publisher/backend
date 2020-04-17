@@ -1,4 +1,9 @@
 <h1>List books</h1>
+<% if user_signed_in? %>
+  <p> Welcome <%= current_user.email %></p>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%end%>
+
 <%= form_with(url: books_path, method: :get, local: true) do |form| %>
   <div class="form-field">
     <%= form.label "Title equal" %>

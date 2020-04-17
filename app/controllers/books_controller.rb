@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_book, only: %i(edit update show destroy)
 
   def new
