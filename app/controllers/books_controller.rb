@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
     if @book.save
       redirect_to action: :index
     else
@@ -18,9 +18,9 @@ class BooksController < ApplicationController
 
   def index
     if params.key?(:q)
-      @books = Book.ransack(query_params).result
+      @books = current_user.books.ransack(query_params).result
     else
-      @books = Book.all
+      @books = current_user.books.all
     end
 
     @books = @books.page(params[:page]).order(:id)
@@ -52,7 +52,7 @@ class BooksController < ApplicationController
   end
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = current_user.books.find(params[:id])
   end
 
   def query_params
