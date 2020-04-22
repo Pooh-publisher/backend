@@ -1,0 +1,10 @@
+h1
+  |  Show Section 
+div
+  |  Name: 
+  = @section.name
+div
+  |  Content: 
+  = simple_format @section.content
+div
+  = link_to  "Back", book_sections_path(@section.book)

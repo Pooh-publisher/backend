@@ -1,0 +1,20 @@
+h1
+  |  Show Book 
+div
+  |  Title: 
+  = @book.title
+div
+  |  Description: 
+  = simple_format @book.description
+div
+  |  Completion Date: 
+  = @book.expected_completion_date
+div
+  |  Category: 
+  = @book.category
+div
+  |  Genre: 
+  = @book.genre
+div
+  = link_to  "Back", books_path
+  = link_to  "Edit", edit_book_path(@book)

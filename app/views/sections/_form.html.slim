@@ -1,0 +1,10 @@
+= form_with(model: [section.book, section], local: true) do |form|
+  .form-field
+    = form.label :name, "Name"
+    = form.text_field :name
+  .form-field
+    = form.label :content, "Content"
+    = form.text_area :content
+  .actions
+    = link_to  "Back", book_sections_path
+    = form.submit

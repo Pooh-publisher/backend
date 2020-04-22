@@ -1,0 +1,14 @@
+h1
+  = @book.title
+ol
+  - @sections.each do |s|
+    li
+      h2
+        = s.name
+      p
+        = link_to "Show", book_section_path(s.book, s)
+        = link_to "Edit", edit_book_section_path(s.book, s)
+        = link_to "Delete", book_section_path(s.book, s), method: :delete, data: {confirm: "Are you sure?"}
+div
+  = link_to "Back", books_path
+  = link_to "Add Section", new_book_section_path

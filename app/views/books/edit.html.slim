@@ -1,0 +1,4 @@
+h1
+  | Edit Book
+= render partial: "shared/invalidation", locals: {resource: @book}
+= render partial: "books/form", locals: { book: @book }
