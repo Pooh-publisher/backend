@@ -1,0 +1,28 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-white
+  a.navbar-brand href="#" Pooh's Publisher
+  button.navbar-toggler type="button" data-toggle="collapse" data-target="#menu"
+
+  div.collapse.navbar-collapse id="menu"
+    ul.navbar-nav
+      li.nav-item.active
+        a.nav-link href="#" Home
+      li.nav-item
+        a.nav-link href="#" About
+      li.nav-item.dropdown
+        a.nav-link.dropdown-toggle#service href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Service
+        .dropdown-menu aria-labelledby="service"
+          .dropdown-item href="#" Write Book
+          .dropdown-item href="#" Review Book
+          .dropdown-item href="#" Buy Book
+
+  form.form-inline.py-2.d-flex.pr-1
+    .form-wrap
+      .input-group.mr-1
+        .input-group-prepend
+          .input-group-text.bg-white
+            i.fas.fa-search
+        input.form-control.border-left-0 type="search" placeholder="Search title or author" aria-label="Search"
+    button.btn.btn-outline-light.m-1 type="submmit" Sign In
+    button.btn.btn-outline-light.m-1 type="submmit" Sign Up
+
+

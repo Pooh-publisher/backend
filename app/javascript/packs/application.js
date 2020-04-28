@@ -7,11 +7,13 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("bootstrap")
+require("@fortawesome/fontawesome-free/js/all.js");
+require("bootstrap/scss/bootstrap.scss");
+require("@fortawesome/fontawesome-free/css/all.css");
 
+let stylesheetsContext = require.context('../stylesheets/', true, /\.scss$/)
+for(let key of stylesheetsContext.keys()) { stylesheetsContext(key) }
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+let imagesContext = require.context('../images/', true)
+for(let key of imagesContext.keys()) { imagesContext(key) }
