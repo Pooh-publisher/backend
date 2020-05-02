@@ -5,13 +5,14 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-white
   div.collapse.navbar-collapse id="menu"
     ul.navbar-nav
       li.nav-item.active
-        a.nav-link href="#" Home
+        = link_to "Home", root_path, class: "nav-link"
       li.nav-item
         a.nav-link href="#" About
       li.nav-item.dropdown
         a.nav-link.dropdown-toggle#service href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Service
         .dropdown-menu aria-labelledby="service"
-          .dropdown-item href="#" Write Book
+          .dropdown-item
+            = link_to "Write Book", books_path
           .dropdown-item href="#" Review Book
           .dropdown-item href="#" Buy Book
 

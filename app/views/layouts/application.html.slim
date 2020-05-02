@@ -10,5 +10,6 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     header= render partial: "shared/header"
-    section.main= yield
+    section.main.py-5
+      .container= yield
     footer= render partial: "shared/footer"
