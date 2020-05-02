@@ -17,6 +17,7 @@ gem 'ransack'
 gem 'devise'
 gem 'slim'
 gem 'slim-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

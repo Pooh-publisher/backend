@@ -5,15 +5,14 @@ h1
     |  Welcome
     = current_user.email
   = link_to "Sign out", destroy_user_session_path, method: :delete
-= form_with(url: books_path, method: :get, local: true) do |form|
-  .form-field
-    = form.label "Title equal"
-    = form.text_field "q[title_eq]"
-  .form-field
-    = form.label "Title contains"
-    = form.text_field "q[title_cont]"
-  .actions
-    = form.submit "Search"
+.search_form.py-2
+  = simple_form_for(:book_search, url: books_path, method: :get) do |form|
+    .form-field
+      = form.input "q[title_eq]", label: "Title equal"
+    .form-field
+      = form.input "q[title_cont]", label: "Title contains"
+    .actions
+      = form.button :submit, "Search", class: 'btn-primary'
 
 table.table
   thread

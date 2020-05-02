@@ -1,19 +1,16 @@
-= form_with(model: book, local: true) do |form|
+= simple_form_for(book) do |form|
   .form-field
-    = form.label :title, "Title"
-    = form.text_field :title
+    = form.input :title, label: "Title"
   .form-field
-    = form.label :description, "Description"
-    = form.text_area :description
+    = form.input :description, label: "Description"
   .form-field
-    = form.label :expected_completion_date
-    = form.text_field :expected_completion_date
+    = form.input :expected_completion_date, as: :date, label: "Expected Completion Date"
   .form-field
-    = form.label :category
-    = form.text_field :category
+    = form.input :category, label: "Category"
   .form-field
-    = form.label :genre
-    = form.text_field :genre
-  .actions
-    = link_to  "Back", books_path
-    = form.submit
+    = form.input :genre, label: "Genre"
+  .actions.d-flex.flex-row
+    = form.button :submit, class: "btn-primary"
+    = link_to  "Back", books_path, class: "btn btn-outline-primary ml-2"
+
+
