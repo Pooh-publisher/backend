@@ -6,11 +6,9 @@ h1
     = current_user.email
   = link_to "Sign out", destroy_user_session_path, method: :delete
 .search_form.py-2
-  = simple_form_for(:book_search, url: books_path, method: :get) do |form|
+  = simple_form_for(:q, url: books_path, method: :get) do |form|
     .form-field
-      = form.input "q[title_eq]", label: "Title equal"
-    .form-field
-      = form.input "q[title_cont]", label: "Title contains"
+      = form.input :title_cont, label: "Search", input_html: { value: params.dig(:q, :title_cont) }
     .actions
       = form.button :submit, "Search", class: 'btn-primary'
 

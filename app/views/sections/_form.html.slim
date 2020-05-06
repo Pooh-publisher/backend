@@ -1,10 +1,8 @@
-= form_with(model: [section.book, section], local: true) do |form|
+= simple_form_for([@book, @section]) do |form|
   .form-field
-    = form.label :name, "Name"
-    = form.text_field :name
+    = form.input :name, label: "Name"
   .form-field
-    = form.label :content, "Content"
-    = form.text_area :content
+    = form.input :content, label: "Content"
   .actions
-    = link_to  "Back", book_sections_path
-    = form.submit
+    = form.button :submit, class: "btn btn-primary mr-2"
+    = link_to "Back", book_sections_path, class: "btn btn-outline-primary"

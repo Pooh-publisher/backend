@@ -1,20 +1,21 @@
 h1
-  |  Show Book 
-div
-  |  Title: 
   = @book.title
-div
-  |  Description: 
+div.py-2
+  .h5
+    |  Description:
   = simple_format @book.description
-div
-  |  Completion Date: 
+div.py-2
+  .h5
+    |  Completion Date:
   = @book.expected_completion_date
-div
-  |  Category: 
+div.py-2
+  .h5
+    |  Category:
   = @book.category
-div
-  |  Genre: 
+div.py-2
+  .h5
+    |  Genre:
   = @book.genre
 div
-  = link_to  "Back", books_path
-  = link_to  "Edit", edit_book_path(@book)
+  = link_to  "Edit", edit_book_path(@book), class: "btn btn-primary mr-2"
+  = link_to  "Back", books_path, class: "btn btn-outline-primary"
