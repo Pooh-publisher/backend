@@ -23,7 +23,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-white
           .input-group-text.bg-white
             i.fas.fa-search
         input.form-control.border-left-0 type="search" placeholder="Search title or author" aria-label="Search"
-    button.btn.btn-outline-light.m-1 type="submmit" Sign In
-    button.btn.btn-outline-light.m-1 type="submmit" Sign Up
+    - if user_signed_in?
+      .dropdown
+        = link_to current_user.email, "#", id: "account-dropdown", data: {toggle: "dropdown" }, class: "text-white pl-2"
+        .dropdown-menu aria_labelledby="account-dropdown"
+          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"
+    - else
+      = link_to "Sign In", new_user_session_path, class: "btn btn-outline-light m-1"
+      = link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light m-1"
 
 
