@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_book, only: %i(edit update show destroy)
 
@@ -23,7 +22,7 @@ class BooksController < ApplicationController
       @books = current_user.books.all
     end
 
-    @books = @books.page(params[:page]).order(:id)
+    @books = @books.page(params[:page])
   end
 
   def edit

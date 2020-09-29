@@ -18,6 +18,7 @@ gem 'devise'
 gem 'slim'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'aasm'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'annotate'
   gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do
@@ -35,6 +37,7 @@ group :development do
 end
 
 group :test do
+  gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'

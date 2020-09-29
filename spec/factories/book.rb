@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :book do
-    sequence :title do |i|
-      "The tree #{i}"
-    end
-    description { "Book Description" }
+    title { FFaker::Book.title }
+    description { FFaker::Book.description }
     user
   end
 end

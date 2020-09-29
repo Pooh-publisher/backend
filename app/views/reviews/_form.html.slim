@@ -1,0 +1,6 @@
+= simple_form_for(review) do |form|
+  .form-field
+    = form.association :book, collection: current_user.books, prompt: "Choose the book", label: false
+  .actions.d-flex.flex-row
+    = form.button :submit, class: "btn-primary"
+    = link_to  "Back", books_path, class: "btn btn-outline-primary ml-2"

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :sections
   end
 
+  resources :reviews
+  
   root to: 'static_pages#show', id: "home"
 
   resources :static_pages, only: [:show]

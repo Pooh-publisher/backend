@@ -13,7 +13,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-white
         .dropdown-menu aria-labelledby="service"
           .dropdown-item
             = link_to "Write Book", books_path
-          .dropdown-item href="#" Review Book
+          .dropdown-item
+            = link_to "Review Book", new_review_path
           .dropdown-item href="#" Buy Book
 
   form.form-inline.py-2.d-flex.pr-1
